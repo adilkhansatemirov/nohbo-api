@@ -4,7 +4,7 @@ const router = express.Router();
 const mailjet = require('node-mailjet').connect('05b5666055bbf6dfe42636ff494e1f8e', '7d062374300e5e363c4e1efb32ae61a6');
 
 router.get('/', (req, res) => {
-  res.send('Hello world');
+  res.send('Hello world nohbo');
 });
 
 router.post('/', async (req, res) => {
@@ -13,19 +13,21 @@ router.post('/', async (req, res) => {
       {
         From: {
           Email: 'adilkhansatemirov@gmail.com',
-          Name: 'Speakia.kz',
+          Name: 'Nohbo.com',
         },
         To: [
           {
-            Email: 'akmor.shokparbay@nu.edu.kz',
-            // Email: '170103156@stu.sdu.edu.kz',
+            // Email: 'akmor.shokparbay@nu.edu.kz',
+            Email: '170103156@stu.sdu.edu.kz',
             Name: 'Adilkhan',
           },
         ],
-        Subject: 'Новая заявка Speakia.kz',
-        TextPart: `Заявка от ${req.body.name}, номер: ${req.body.phoneNumber}`,
-        HTMLPart:
-          `<p>Заявка от <strong>${req.body.name}</strong>, номер: <strong>${req.body.phoneNumber}</strong></p>`,
+        Subject: 'New message Nohbo.com',
+        TextPart: `Message from ${req.body.firstName} ${req.body.lastName}, email: ${req.body.email}, message: ${req.body.message}`,
+        HTMLPart: `<div>
+                    <p>Message from <strong>${req.body.firstName} ${req.body.lastName}</strong>, email: <strong>${req.body.email}</strong></p>
+                    <p>Message text: ${req.body.message}</p>
+                  </div>`,
         CustomID: 'AppGettingStartedTest',
       },
     ],
