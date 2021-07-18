@@ -17,8 +17,7 @@ router.post('/', async (req, res) => {
         },
         To: [
           {
-            // Email: 'akmor.shokparbay@nu.edu.kz',
-            Email: 'azhar@nohbo.com',
+            Email: 'info@nohbo.com',
             Name: 'Azhar',
           },
         ],
